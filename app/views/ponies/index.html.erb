@@ -5,12 +5,12 @@
 </div>
 
 <div class="container">
- <div class="row d-flex card-deck">
+ <div class="card-deck d-flex">
     <% @ponies.each do |pony| %>
-      <div class="co-12 col-sm-6 col-md-4 mb-3">
+      <div class="card">
         <%= link_to pony_path(pony) do %>
-          <div class="card-category" data-aos="zoom-in">
-            <%= pony.photos[1] %>
+          <div class="card-body">
+            <%# <%= cl_image_tag(pony.photo, width: 400, height: 300, crop: :fill) %>
             <%= pony.name %>
             <%= pony.price_per_day %>
           </div>
