@@ -90,9 +90,10 @@ pony_names.each do |name|
   )
 
   image = URI.open(images[image_index])
-  pony.photo.attach(io: image, filename: "#{pony.name}.jpg", content_type: "image/jpg")
-  pony.save
+  pony.photos.attach(io: image, filename: "#{pony.name}.jpg", content_type: "image/jpg")
+  pony.save!
   image_index += 1
+  puts "#{pony.name} is created successfully!"
 end
 
 puts "Pony seed completed successfully!"
@@ -102,14 +103,21 @@ puts "Pony seed completed successfully!"
 puts "Creating bookings..."
 
 10.times do
-  start_date = Faker::Date.between(from: 1.month.from_now, to: 3.months.from_now)
-  end_date = start_date + rand(1..14).days
+  start_date = Date.today + rand(1..14)
+  end_date = start_date + rand(1..14)
+  user = User.all.sample
+  pony = Pony.where.not(user:).sample
+  total_price = pony.price_per_day * (end_date - start_date)
 
-  Booking.create!(
-    start_date: Faker::Name.first_name,
-    end_date: Faker::Name.last_name,
-    total_price: rand(100..1000), # Calculer total_price
-    user: User.all.sample,
-    pony: Pony.all.sample
+  booking = Booking.create!(
+    start_date:,
+    end_date:,
+    total_price:, # Calculer total_price
+    user:,
+    pony:
   )
+
+  puts "Bookings n°#{booking.id + 1} created!"
 end
+
+puts "All done!"

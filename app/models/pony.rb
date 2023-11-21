@@ -1,10 +1,10 @@
 class Pony < ApplicationRecord
   belongs_to :user
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   has_many_attached :photos
 
   validates :name, presence: true, length: { minimum: 3 }
-  validates :location, :birth_date, :picture, presence: true
+  validates :location, :birth_date, presence: true
   validates :race, presence: true, inclusion: { in: %w(
     Shetland
     Welsh
