@@ -9,6 +9,7 @@
 #   end
 
 require 'faker'
+require 'open-uri'
 
 User.destroy_all
 Pony.destroy_all
@@ -54,10 +55,29 @@ pony_names = [
   "Zoe"
 ]
 
+images = [
+  "https://www.classequine.com/wp-content/uploads/2021/04/race-poney-Shetland.jpg",
+  "https://www.classequine.com/wp-content/uploads/2021/03/Pottok.jpg",
+  "https://www.classequine.com/wp-content/uploads/2021/03/Haflinger.jpg",
+  "https://www.classequine.com/wp-content/uploads/2021/03/cheval-Fjord.jpg",
+  "https://www.classequine.com/wp-content/uploads/2021/03/Poney-Welsh.jpg",
+  "https://www.classequine.com/wp-content/uploads/2021/03/Connemara.jpg",
+  "https://www.classequine.com/wp-content/uploads/2021/05/Poney-New-Forest.jpg",
+  "https://www.classequine.com/wp-content/uploads/2021/05/poney-fell.jpg",
+  "https://www.classequine.com/wp-content/uploads/2021/08/cheval-Asturcon.jpg",
+  "https://www.classequine.com/wp-content/uploads/2021/07/poney-des-ameriques.jpg",
+  "https://www.classequine.com/wp-content/uploads/2021/03/poney-landais.jpg",
+  "https://www.classequine.com/wp-content/uploads/2021/10/gipsy-cob-cheval.jpeg",
+  "https://www.classequine.com/wp-content/uploads/2021/03/Dartmoor.jpg",
+  "https://i-mom.unimedias.fr/2023/04/06/licorne.jpg?auto=format%2Ccompress&crop=faces&cs=tinysrgb&fit=crop&h=236&w=420",
+  "https://stock.wikimini.org/w/images/b/b5/Poney_shetland-9380.jpg"
+]
+image_index = 0
+
 # Création des ponies
 puts "Creating ponies..."
 pony_names.each do |name|
-  Pony.create(
+  pony = Pony.new(
     name:,
     race: races.sample,
     location: locations.sample,
@@ -68,6 +88,11 @@ pony_names.each do |name|
     price_per_day: rand(20..100),
     user: User.all.sample
   )
+
+  image = URI.open(images[image_index])
+  pony.photo.attach(io: image, filename: "#{pony.name}.jpg", content_type: "image/jpg")
+  pony.save
+  image_index += 1
 end
 
 puts "Pony seed completed successfully!"
