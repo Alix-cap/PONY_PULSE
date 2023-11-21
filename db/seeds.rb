@@ -79,12 +79,12 @@ puts "Creating ponies..."
 pony_names.each do |name|
   pony = Pony.new(
     name:,
-    race: races.sample,
+    race: Pony::RACES.sample,
     location: locations.sample,
     birth_date: rand(5..15).years.ago.to_date,
     sex: ["Male", "Female"].sample,
-    purpose: purposes.sample,
-    coat: coats.sample,
+    purpose: Pony::PURPOSES.sample,
+    coat: Pony::COAT.sample,
     price_per_day: rand(20..100),
     user: User.all.sample
   )
