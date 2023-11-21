@@ -3,3 +3,13 @@
 @import "avatar";
 @import "form_legend_clear";
 @import "navbar";
+
+#home-hero {
+  background-position: center;
+  background-size: cover;
+  height: 500px;
+}
+
+#half-hero {
+  width: 50%;
+}
