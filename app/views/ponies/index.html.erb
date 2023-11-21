@@ -1,0 +1,21 @@
+<div class="cover mb-4 d-flex align-items-center justify-content-center">
+  <div class="text-center text-black">
+    <h1>Our ponies</h1>
+  </div>
+</div>
+
+<div class="container">
+ <div class="row d-flex card-deck">
+    <% @ponies.each do |pony| %>
+      <div class="co-12 col-sm-6 col-md-4 mb-3">
+        <%= link_to pony_path(pony) do %>
+          <div class="card-category" data-aos="zoom-in">
+            <%= pony.photos[1] %>
+            <%= pony.name %>
+            <%= pony.price_per_day %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
