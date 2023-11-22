@@ -1,32 +1,48 @@
-<%# <div class="container"> %>
+<div class="container">
   <div class="card-trip">
-    <div class="row">
-      <div class="col-6">
-      <img class="image" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-      </div>
-      <div class="images col-6">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" style="width: 150px; height:150px" />
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" style="width: 150px; height:150px"  />
+    <div class="row d-flex justify-content-center">
+      <div class="col-9">
+        <img class="image" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
       </div>
     </div>
-    <div class="card-trip-infos">
+    <div class="card-trip-infos d-flex justify-content-around mb-4">
       <div>
         <h2><%= @pony.name %></h2>
         <p><%= @pony.race %></p>
       </div>
-      <h2 class="card-trip-pricing"><%= @pony.price_per_day %>$ per day</h2>
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-        <i class="fa-solid fa-venus-mars"></i>  Gender: <%=  @pony.sex%>
-        <i class="fa-solid fa-cake-candles"></i>birth date: <%=  @pony.birth_date%>
-        <i class="fa-solid fa-palette"></i>Coat: <%= @pony.coat %>
-        <i class="fa-solid fa-puzzle-piece"></i>Purpose: <%= @pony.purpose %>
-
-        </div>
+      <div>
+        <h2 class="card-trip-pricing"><%= @pony.price_per_day %>$ per day</h2>
       </div>
     </div>
+      <div class="row">
+        <div class="col-7">
+          <div class="cards-map mb-4">
+            <div class="card-map">
+              <img class="image-map" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+            </div>
+          </div>
+        </div>
+        <div class="col-3 text-center">
+          <h3>le futur form</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-7">
+          <div class="cards">
+            <div class="card d-flex justify-content-center">
+              <i class="fa-solid fa-venus-mars"></i>  <p>Gender: <%=  @pony.sex%></p>
+            </div>
+            <div class="card">
+              <i class="fa-solid fa-cake-candles"></i><p>birth date: <%=  @pony.birth_date%></p>
+            </div>
+            <div class="card">
+              <i class="fa-solid fa-palette"></i><p>Coat: <%= @pony.coat %></p>
+            </div>
+            <div class="card">
+              <i class="fa-solid fa-puzzle-piece"></i><p>Purpose: <%= @pony.purpose %></p>
+            </div>
+          </div>
+        </div>
+      </div>
   </div>
-<%# </div> %>
+</div>
