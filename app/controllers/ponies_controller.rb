@@ -16,6 +16,9 @@ class PoniesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+
+  def index
+    @ponies = Pony.all
   end
 
   private
