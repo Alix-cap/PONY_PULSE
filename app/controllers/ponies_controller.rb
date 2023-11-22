@@ -6,6 +6,7 @@ class PoniesController < ApplicationController
 
   private
 
+  
   def set_pony
     @pony = Pony.find(params[:id])
   end
