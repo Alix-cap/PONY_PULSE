@@ -8,6 +8,10 @@ class PoniesController < ApplicationController
     @ponies = Pony.all
   end
 
+  # def destroy
+  #   @ponie.delete
+  # end
+
   private
 
   def set_pony
