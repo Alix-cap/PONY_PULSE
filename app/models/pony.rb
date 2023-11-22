@@ -18,6 +18,7 @@ class Pony < ApplicationRecord
     Female
   )
 
+  geocoded_by :location
   belongs_to :user
   has_many :bookings
   has_many_attached :photos
@@ -33,4 +34,6 @@ class Pony < ApplicationRecord
   validates :purpose, presence: true, inclusion: { in: PURPOSES }
 
   validates :price_per_day, presence: true, numericality: true
+
+  after_validation :geocode, if: :will_save_change_to_location?
 end
