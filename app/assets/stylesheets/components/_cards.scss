@@ -1,0 +1,22 @@
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 16px;
+  padding-left: 165px;
+}
+.cards-map {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 16px;
+  padding-left: 165px;
+}
+.card-map {
+  background-color: white;
+}
+.image-map {
+  width: 100%;
+}
+.card {
+  border-radius: 4px;
+  padding: 10px;
+}
