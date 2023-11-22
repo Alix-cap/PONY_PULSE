@@ -1,9 +1,9 @@
 <div class="container">
   <div class="card-trip">
     <div class="row d-flex justify-content-center">
-      <div class="col-9">
-        <img class="image" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-      </div>
+      <%# <div class="col-9">
+        <%= cl_image_tag(@pony.photos.first.key, class: "card-img-top", alt: "#{@pony.name} Image") %>
+      <%# </div> %>
     </div>
     <div class="card-trip-infos d-flex justify-content-around mb-4">
       <div>
@@ -18,12 +18,21 @@
         <div class="col-7">
           <div class="cards-map mb-4">
             <div class="card-map">
-              <img class="image-map" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+              <%= cl_image_tag(@pony.photos.first.key, class: "card-img-top", alt: "#{@pony.name} Image") %>
             </div>
           </div>
         </div>
-        <div class="col-3 text-center">
-          <h3>le futur form</h3>
+        <div class="col-3">
+          <h2>Booking</h2>
+          <%= simple_form_for [@pony, @booking] do |f| %>
+            <%= f.input :start_date, as: :date, start_year: Date.today.year,
+                                      end_year: Date.today.year + 1,
+                                      order: [:day, :month, :year] %>
+            <%= f.input :end_date, as: :date, start_year: Date.today.year,
+                                      end_year: Date.today.year + 1,
+                                      order: [:day, :month, :year] %>
+            <%= f.button :submit, "Book this pony", class: "btn btn-primary" %>
+          <% end %>
         </div>
       </div>
       <div class="row">
@@ -33,7 +42,7 @@
               <i class="fa-solid fa-venus-mars"></i>  <p>Gender: <%=  @pony.sex%></p>
             </div>
             <div class="card">
-              <i class="fa-solid fa-cake-candles"></i><p>birth date: <%=  @pony.birth_date%></p>
+              <i class="fa-solid fa-cake-candles"></i><p>Birth date: <%=  @pony.birth_date%></p>
             </div>
             <div class="card">
               <i class="fa-solid fa-palette"></i><p>Coat: <%= @pony.coat %></p>
