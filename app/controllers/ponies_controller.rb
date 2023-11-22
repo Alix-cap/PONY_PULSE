@@ -2,6 +2,7 @@ class PoniesController < ApplicationController
   before_action :set_pony, only: [:show, :destroy]
 
   def show
+    @booking = Booking.new
   end
 
   def new
