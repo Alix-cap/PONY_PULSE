@@ -33,8 +33,4 @@ class PoniesController < ApplicationController
   def set_pony
     @pony = Pony.find(params[:id])
   end
-
-  def pony_params
-    params.require(:pony).permit(:name, :race, :location, :birth_date, :sex, :purpose, :coat, :price_per_day, photos: [])
-  end
 end
