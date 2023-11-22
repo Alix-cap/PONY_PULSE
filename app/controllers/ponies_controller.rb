@@ -4,6 +4,10 @@ class PoniesController < ApplicationController
   def show
   end
 
+  def index
+    @ponies = Pony.all
+  end
+
   private
 
   def set_pony
