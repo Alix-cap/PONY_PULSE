@@ -8,63 +8,19 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <%= favicon_link_tag asset_path('pony-pulse.ico') %>
+    <%= favicon_link_tag asset_path("pony-pulse.ico") %>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
   </head>
 
   <body>
-  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-    <div class="container-fluid pl-2">
-      <div class="d-flex align-items-center">
-        <%= link_to "#", class: "navbar-brand" do %>
-          <i class="fa-sharp fa-solid fa-horse-head fa-xl ml-5 " style="color: #365063;"></i>
-          Pony Pulse
-        <% end %>
-      </div>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mx-4">
-          <% if user_signed_in? %>
-            <li class="nav-item active">
-              <%= link_to "Discover our ponies", "#", class: "nav-link" %>
-            </li>
-            <li class="nav-item pr-4">
-              <%= link_to "Create an advertisement", "#", class: "nav-link" %>
-            </li>
-            <li class="nav-item dropdown">
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <%= link_to "My profile", "#", class: "dropdown-item" %>
-                <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
-              </div>
-            </li>
-          <% else %>
-            <li class="nav-item">
-              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-  </div>
+    <%= render 'shared/navbar' %>
 
     <%= yield %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <div class="footer-container">
-      <div class="footer">
-        <div class="footer-links mt-3">
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-facebook"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          Pony Pulse © 2023 | In Ponies We Trust | All Right Reserved
-        </div>
-      </div>
-    </div>
 
+    <%= render 'shared/footer' %>
   </body>
 </html>

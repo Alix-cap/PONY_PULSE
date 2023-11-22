@@ -1,43 +1,43 @@
-<div id="home-hero" style='height: 500px; background: url(<%= cl_image_path 'jpznyatzphanfskm3sr6' %>)'>
+<div id="home-hero" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path("homepage-hero.jpg") %>">
   <div class="container">
   <div id="half-hero">
       <div class="row">
-        <h1 class="h1">Louez les plus beaux poneys pour vos événements</h1>
+        <h1 class="h1">Rent beautiful ponies for your events</h1>
       </div>
       <div class="row">
-        <p>Réalisez vos rêves grâce à nos poneys pour monter, tondre ou pour vous tenir compagnie!</p>
+        <p>Live your best life thanks to our ponies : ride, mow or just enjoy the warmth!</p>
       </div>
       <div class="row">
-        <a class="btn btn-primary" href="#">Choisir votre poney</a>
+        <%= link_to "Choose your pony", ponies_path(@ponies), class: "btn btn-primary" %>
       </div>
     </div>
   </div>
 </div>
 <div class="bg-light">
   <div class="container">
-  <h2 class="h2 mt-3">Un service de qualité</h2>
+  <h2 class="h2 mt-3">Professionnal service</h2>
     <div class="row">
       <div class="col-4 p-3">
         <div class="card h-100">
           <div class="card-body">
-            <h5 class="card-title">Des poneys heureux</h5>
-            <p class="card-text">Tous nos poneys sont élevés et entretenus par des propriétaires attentionnés, dans des grandes étendues d'herbe parfaitement adaptés à leurs besoins.</p>
+            <h5 class="card-title">Meet the happiest ponies</h5>
+            <p class="card-text">All our ponies live beautiful lives, their owners dedicate themselves to ensuring they have the best environnement to thrive!</p>
           </div>
         </div>
       </div>
       <div class="col-4 p-3">
         <div class="card h-100">
           <div class="card-body">
-            <h5 class="card-title">Un poney pour chaque occasion</h5>
-            <p class="card-text">Pour un animer un anniversaire inoubliable, pour tondre votre jardin ou pour une balade thérapeutique : nous avons le poney qu'il vous faut.</p>
+            <h5 class="card-title">The right pony for your moment</h5>
+            <p class="card-text">For a memorable birthday, to help during a difficult time or just to lighten the load : we have the right pony for you.</p>
           </div>
         </div>
       </div>
         <div class="col-4 p-3">
         <div class="card h-100">
           <div class="card-body">
-            <h5 class="card-title">Garantie satisfait ou remboursé</h5>
-            <p class="card-text">Si à l'issue de votre location vous n'êtes pas satisfait du service, Pony Pulse vous rembourse votre location.</p>
+            <h5 class="card-title">Money back guarantee</h5>
+            <p class="card-text">Your satisfaction is paramount to us : if for whatever reason you're not satisfied with your pony rental, we'll give you back your money</p>
           </div>
         </div>
       </div>
@@ -46,18 +46,18 @@
 </div>
 <div class="bg-light">
   <div class="container p-3">
-  <h2 class="h2">Nos utilisateurs kiff grave</h2>
+  <h2 class="h2">People love us</h2>
     <div class="card mt-3 mb-3 p-3">
-      <h5 class="card-title">Avis client très satisfait</h5>
-      <p class="card-text">J'ai beaucoup aimé c'était chouette</p>
+      <h5 class="card-title">Very satisfied user</h5>
+      <p class="card-text">Loved every second of my pony rental, thanks to Pony Pulse !</p>
     </div>
     <div class="card mt-3 mb-3 p-3">
-      <h5 class="card-title">Avis client très satisfait</h5>
-      <p class="card-text">J'ai beaucoup aimé c'était chouette</p>
+      <h5 class="card-title">Very satisfied user</h5>
+      <p class="card-text">Loved every second of my pony rental, thanks to Pony Pulse !</p>
     </div>
     <div class="card mt-3 mb-3 p-3">
-      <h5 class="card-title">Avis client très satisfait</h5>
-      <p class="card-text">J'ai beaucoup aimé c'était chouette</p>
+      <h5 class="card-title">Very satisfied user</h5>
+      <p class="card-text">Loved every second of my pony rental, thanks to Pony Pulse !</p>
     </div>
   </div>
 </div>
