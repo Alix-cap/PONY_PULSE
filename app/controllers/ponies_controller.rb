@@ -16,12 +16,14 @@ class PoniesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
 
   def index
     @ponies = Pony.all
   end
 
   private
+
 
   def set_pony
     @pony = Pony.find(params[:id])
