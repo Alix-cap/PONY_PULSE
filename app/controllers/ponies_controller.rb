@@ -2,6 +2,7 @@ class PoniesController < ApplicationController
   before_action :set_pony, only: [:show]
 
   def show
+    @booking = Booking.new
   end
 
   def new
@@ -16,6 +17,7 @@ class PoniesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
 
   def index
     @ponies = Pony.all
