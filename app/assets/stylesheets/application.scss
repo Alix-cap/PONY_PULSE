@@ -13,3 +13,14 @@
 @import "components/footer";
 @import "components/card_trip";
 @import "pages/index";
+
+// .page-container {
+//   position: relative;
+//   min-height: 100vh;
+// }
+
+body {
+  position: relative;
+  padding-bottom: 45px;
+  min-height: 100vh;
+}
