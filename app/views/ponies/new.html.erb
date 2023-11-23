@@ -9,7 +9,9 @@
                               order: [:day, :month, :year] %>
     <%= f.input :coat, collection: Pony::COAT %>
     <%= f.input :purpose, collection: Pony::PURPOSES %>
-    <%= f.input :location %>
+    <%= f.input :location,
+      input_html: {data: {address_autocomplete_target: "location"}},
+      wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
     <%= f.input :price_per_day %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.button :submit, "Register my pony", class: "btn btn-primary" %>
