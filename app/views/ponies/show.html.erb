@@ -35,12 +35,6 @@
         data-map-markers-value="<%= @markers %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
-      <script>
-        // Create a default Marker and add it to the map.
-        const marker1 = new mapboxgl.Marker()
-          .setLngLat([<%= @pony.longitude %>, <%= @pony.latitude %>])
-          .addTo(map);
-      </script>
       <p><%= @pony.location %></p>
     </div>
     </div>
