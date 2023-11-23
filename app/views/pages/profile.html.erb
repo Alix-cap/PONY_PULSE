@@ -8,14 +8,53 @@
 
     <div class="col-3">
       <div class="card-info-profile">
-      <h2>Your ponies: </h2>
-      <% @user.ponies.each do |pony| %>
-        <%= pony.name %>
-        <%= link_to "❌",
-        pony_path(pony),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this pony?"}
-      %>
-      <% end %>
+        <h2>Your ponies: </h2>
+        <% @ponies.each do |pony| %>
+          <div class="card">
+            <%= pony.name %>
+            <%= link_to "❌",
+            pony_path(pony),
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this pony?"}
+          %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <div class="card-info-profile">
+        <h2>Your future bookings: </h2>
+          <% @user.bookings.each do |booking| %>
+            <div class="card">
+              <p>start date: <%= booking.start_date %></p>
+              <p>start date: <%= booking.end_date %></p>
+              <p>status: <%= booking.status %></p>
+              <p>pony: <%= booking.pony.name%></p>
+            </div>
+          <% end %>
+      </div>
+    </div>
+
+        <div class="col-3">
+      <div class="card-info-profile">
+        <h2>Bookings to validate : </h2>
+        <% @bookings_to_validate.each do |booking| %>
+          <div class="card">
+              <p>start date: <%= booking.start_date %></p>
+              <p>start date: <%= booking.end_date %></p>
+              <p>status: <%= booking.status %></p>
+              <p>pony: <%= booking.pony.name%></p>
+              <%= link_to "Accept",
+                accept_booking_path(booking),
+                data: {turbo_method: :patch, turbo_confirm: "Are you sure you want to accept this booking ?"}
+              %>
+
+              <%= link_to "Decline",
+                decline_booking_path(booking),
+                data: {turbo_method: :patch, turbo_confirm: "Are you sure you want to refuse this booking ?"}
+              %>
+          </div>
+          <% end %>
       </div>
     </div>
   </div>

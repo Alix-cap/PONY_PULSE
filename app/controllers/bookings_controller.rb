@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-
+  before_action :set_booking, only: [:accept, :decline]
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
@@ -13,23 +13,21 @@ class BookingsController < ApplicationController
     end
   end
 
-  # def edit
-  # end
+  def accept
+    @booking.update(status: "Accepted")
+    redirect_to profile_path
+  end
 
-  # def update
-  #   if @booking.update(booking_params)
-  #     redirect_to booking_path(@booking)
-  #   else
-  #     render :new, status: :unprocessable_entity
-  #   end
-  # end
-
-  # def destroy
-  #   @booking.destroy
-  #   redirect_to booking_path, status: :see_other
-  # end
+  def decline
+    @booking.update(status: "Declined")
+    redirect_to profile_path(current_user), status: :see_other
+  end
 
   private
+
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)
