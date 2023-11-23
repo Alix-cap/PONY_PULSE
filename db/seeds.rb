@@ -93,6 +93,7 @@ puts "Creating ponies..."
 pony_names.each_with_index do |name, index|
   pony = Pony.new(
     name:,
+    description: Faker::Lorem.paragraph(sentence_count: 10),
     race: Pony::RACES.sample,
     location: locations[index],
     birth_date: "#{rand(1990..2020)}-#{rand(1..12)}-#{rand(1..28)}",

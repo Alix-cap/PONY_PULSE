@@ -3,6 +3,13 @@ class PoniesController < ApplicationController
 
   def show
     @booking = Booking.new
+    # @markers = temp.geocoded.map do |pony|
+    #   {
+    #     lat: pony.latitude,
+    #     lng: pony.longitude,
+    #     info_window_html: render_to_string(partial: "info_window", locals: { pony: pony })
+    #   }
+    # end
   end
 
   def new
@@ -25,7 +32,7 @@ class PoniesController < ApplicationController
       {
         lat: pony.latitude,
         lng: pony.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {pony: pony})
+        info_window_html: render_to_string(partial: "info_window", locals: { pony: pony })
       }
     end
   end
