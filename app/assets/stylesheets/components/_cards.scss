@@ -16,10 +16,15 @@
 .image-map {
   width: 100%;
 }
-.card {
+.card-shadow {
   border-radius: 4px;
   padding: 10px;
   width: 45%;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+}
+
+.card-text {
+  color: grey;
 }
 
 .card-info-profile {
