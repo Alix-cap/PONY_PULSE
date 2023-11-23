@@ -21,6 +21,13 @@ class PoniesController < ApplicationController
 
   def index
     @ponies = Pony.all
+    @markers = @ponies.geocoded.map do |pony|
+      {
+        lat: pony.latitude,
+        lng: pony.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {pony: pony})
+      }
+    end
   end
 
   def destroy
@@ -29,6 +36,7 @@ class PoniesController < ApplicationController
   end
 
   private
+
   def pony_params
     params.require(:pony).permit(:name, :race, :location, :birth_date, :sex, :purpose, :coat, :price_per_day, photos: [])
   end
