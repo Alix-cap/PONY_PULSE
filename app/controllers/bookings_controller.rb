@@ -5,7 +5,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @pony = Pony.find(params[:pony_id])
     @booking.pony = @pony
-    @booking.total_price = @pony.price_per_day * (@booking.end_date - @booking.start_date)
+    @booking.total_price = @pony.price_per_day * (@booking.end_date.to_date - @booking.start_date.to_date)
     if @booking.save!
       redirect_to profile_path
     else
