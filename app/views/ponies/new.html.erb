@@ -4,9 +4,7 @@
     <%= f.input :name %>
     <%= f.input :sex, collection: Pony::SEX %>
     <%= f.input :race, collection: Pony::RACES %>
-    <%= f.input :birth_date, as: :date, start_year: Date.today.year - 30,
-                              end_year: Date.today.year,
-                              order: [:day, :month, :year] %>
+    <%= f.input :birth_date, as: :string, input_html: { data: { controller: "datepicker" } } %>
     <%= f.input :coat, collection: Pony::COAT %>
     <%= f.input :purpose, collection: Pony::PURPOSES %>
     <%= f.input :location,

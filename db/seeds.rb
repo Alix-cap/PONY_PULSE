@@ -95,7 +95,7 @@ pony_names.each_with_index do |name, index|
     name:,
     race: Pony::RACES.sample,
     location: locations[index],
-    birth_date: rand(5..15).years.ago.to_date,
+    birth_date: "#{rand(1990..2020)}-#{rand(1..12)}-#{rand(1..28)}",
     sex: ["Male", "Female"].sample,
     purpose: Pony::PURPOSES.sample,
     coat: Pony::COAT.sample,
@@ -117,11 +117,11 @@ puts "Pony seed completed successfully!"
 puts "Creating bookings..."
 
 10.times do
-  start_date = Date.today + rand(1..14)
-  end_date = start_date + rand(1..14)
+  start_date = (Date.today + rand(1..14)).to_s
+  end_date = (start_date.to_date + rand(1..14)).to_s
   user = User.all.sample
   pony = Pony.where.not(user:).sample
-  total_price = pony.price_per_day * (end_date - start_date)
+  total_price = pony.price_per_day * (end_date.to_date - start_date.to_date)
 
   booking = Booking.create!(
     start_date:,
