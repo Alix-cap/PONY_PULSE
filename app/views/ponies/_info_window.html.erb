@@ -1,0 +1,6 @@
+<h3 class="card-title"><%= pony.name %></h3>
+<p class="card-text">Race:
+  <%= pony.race %><br />
+  Purpose: <%= pony.purpose %>
+</p>
+<%= link_to 'View', pony_path(pony), class: "btn btn-primary" %>

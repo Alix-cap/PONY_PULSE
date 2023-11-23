@@ -18,10 +18,9 @@ class Pony < ApplicationRecord
     Female
   )
 
-
   belongs_to :user
-  has_many :bookings
-  has_many_attached :photos
+  has_many :bookings, dependent: :destroy
+  has_many_attached :photos, dependent: :destroy
 
   validates :name, presence: true, length: { minimum: 3 }
   validates :location, :birth_date, :photos, presence: true

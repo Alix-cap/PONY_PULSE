@@ -24,7 +24,10 @@
     <div class="col-md-5">
       <div class="">
         <div class="card-body">
-          <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/7/72/Carte_France.png", class: "img-fluid", alt: "Map of France") %>
+        <div style="height: 600px;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
         </div>
       </div>
     </div>
