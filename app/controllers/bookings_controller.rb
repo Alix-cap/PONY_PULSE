@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
 
   def accept
     @booking.update(status: "Accepted")
-    redirect_to profile_path
+    redirect_to profile_path(current_user), status: :see_other
   end
 
   def decline
