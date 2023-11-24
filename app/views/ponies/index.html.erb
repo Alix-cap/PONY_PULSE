@@ -12,9 +12,8 @@
               <%= cl_image_tag(pony.photos.first.key, class: "img-rounded", alt: "#{pony.name} Image") %>
               <div class="card-body">
                 <h5 class="card-title mb-2 pt-2"> <b><%= pony.name %></b></h5>
-                <p class="card-text mb-2"><%= pony.purpose %></p>
-                <p class="card-text"><%= pony.price_per_day %> <i class="fa-solid fa-dollar-sign"></i></p>
-                <%= link_to "More info", pony_path(pony), class: "btn-purple ml-auto" %>
+                <p class="card-text"><%= pony.purpose %><br/><%= pony.price_per_day %>$</p>
+                <%= link_to "More info", pony_path(pony), class: "btn-purple ml-auto mb-2" %>
               </div>
             </div>
           <% end %>
@@ -23,7 +22,7 @@
 
     <div class="col-md-4">
       <div class="position-sticky top-0">
-        <div class="card-body">
+        <div class="img-rounded">
         <div style="height: 600px;"
           data-controller="map"
           data-map-markers-value="<%= @markers.to_json %>"
