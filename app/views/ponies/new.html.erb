@@ -11,20 +11,16 @@
   <%= simple_form_for @pony do |f| %>
       <div class="row mb-3">
         <div class="col-md-3">
-          <i class="fas fa-horse input-icon orange-icon"></i>
-          <%= f.input :name, label: "Name" %>
+          <%= f.input :name, label: "🐴 Name" %>
         </div>
         <div class="col-md-3">
-          <i class="fas fa-venus-mars input-icon"></i>
-          <%= f.input :sex, collection: Pony::SEX, label: "Sex" %>
+          <%= f.input :sex, collection: Pony::SEX, label: "⚤ Sex" %>
         </div>
         <div class="col-md-3">
-          <i class="fas fa-flag"></i>
-          <%= f.input :race, collection: Pony::RACES, label: "Race" %>
+          <%= f.input :race, collection: Pony::RACES, label: "🧬 Race" %>
         </div>
         <div class="col-md-3">
-          <i class="fas fa-paint-brush"></i>
-          <%= f.input :coat, collection: Pony::COAT, label: "Coat" %>
+          <%= f.input :coat, collection: Pony::COAT, label: "🖌️ Coat" %>
 
         </div>
       </div>
@@ -32,16 +28,13 @@
       <!-- Ligne 2 -->
       <div class="row mb-3">
         <div class="col-md-4">
-          <i class="fas fa-calendar-alt input-icon"></i>
-          <%= f.input :birth_date, as: :string, input_html: { data: { controller: "datepicker" } }, label: "Birthdate" %>
+          <%= f.input :birth_date, as: :string, input_html: { data: { controller: "datepicker" } }, label: "🎂 Birthdate" %>
         </div>
         <div class="col-md-4">
-          <i class="fa-solid fa-mountain-sun"></i>
-          <%= f.input :purpose, collection: Pony::PURPOSES, label: "Purpose" %>
+          <%= f.input :purpose, collection: Pony::PURPOSES, label: "🎯 Purpose" %>
         </div>
         <div class="col-md-4">
-          <i class="fas fa-dollar-sign input-icon"></i>
-          <%= f.input :price_per_day, label: "Price per day" %>
+          <%= f.input :price_per_day, label: "💰 Price per day" %>
 
         </div>
       </div>
@@ -49,20 +42,17 @@
       <!-- Ligne 3 -->
       <div class="row mb-3">
         <div class="col-md-6 mw-50">
-          <i class="fas fa-map-marker-alt input-icon"></i>
-          <%= f.input :location, input_html: { data: { address_autocomplete_target: "location" }, class: "d-none" }, wrapper_html: { data: { controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"] } }, label: "Location" %>
+          <%= f.input :location, input_html: { data: { address_autocomplete_target: "location" }, class: "d-none" }, wrapper_html: { data: { controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"] } }, label: "🗺️ Location" %>
         </div>
         <div class="col-md-6 mw-50">
-          <i class="fas fa-camera input-icon"></i>
-          <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Photos" %>
+          <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "📸 Photos" %>
         </div>
       </div>
 
       <!-- Ligne 4 -->
       <div class="row mb-3">
         <div class="col-md-12">
-          <i class="fas fa-file-alt input-icon"></i>
-          <%= f.input :description, label: "Description", input_html: { placeholder: 'Please describe how nice your pony is' } %>
+          <%= f.input :description, label: "✍️ Description", input_html: { placeholder: 'Please describe how nice your pony is' } %>
         </div>
       </div>
 
