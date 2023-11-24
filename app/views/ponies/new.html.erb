@@ -1,18 +1,102 @@
-<div class="container mb-3">
-<div class="mt-3">
-  <%= simple_form_for @pony do |f| %>
-    <%= f.input :name %>
-    <%= f.input :sex, collection: Pony::SEX %>
-    <%= f.input :race, collection: Pony::RACES %>
-    <%= f.input :birth_date, as: :string, input_html: { data: { controller: "datepicker" } } %>
-    <%= f.input :coat, collection: Pony::COAT %>
-    <%= f.input :purpose, collection: Pony::PURPOSES %>
-    <%= f.input :location,
-      input_html: {data: {address_autocomplete_target: "location"}, class: "d-none"},
-      wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
-    <%= f.input :price_per_day %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.button :submit, "Register my pony", class: "btn btn-purple" %>
-  <% end %>
-</div>
+<div class="container my-3">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <%= simple_form_for @pony, html: { class: 'mx-auto', style: 'max-width: 800px;' } do |f| %>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fas fa-horse"></i></div>
+              </div>
+              <%= f.input :name, label: false, placeholder: 'Name', class: 'form-control' %>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fas fa-venus-mars"></i></div>
+              </div>
+              <%= f.input :sex, collection: Pony::SEX, label: false, include_blank: 'Sex', class: 'form-control' %>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fas fa-flag"></i></div>
+              </div>
+              <%= f.input :race, collection: Pony::RACES, label: false, include_blank: 'Race', class: 'form-control' %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fas fa-paint-brush"></i></div>
+              </div>
+              <%= f.input :coat, collection: Pony::COAT, label: false, include_blank: 'Coat', class: 'form-control' %>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fas fa-birthday-cake"></i></div>
+              </div>
+              <%= f.input :birth_date, as: :date, start_year: Date.today.year - 30,
+                                        end_year: Date.today.year,
+                                        order: [:day, :month, :year], label: false, placeholder: 'Birthdate', class: 'form-control' %>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fas fa-bullseye"></i></div>
+              </div>
+              <%= f.input :purpose, collection: Pony::PURPOSES, label: false, include_blank: 'Purpose', class: 'form-control' %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fas fa-map-marker-alt"></i></div>
+              </div>
+              <%= f.input :location,
+                input_html: { data: { address_autocomplete_target: "location" }, class: "d-none form-control" },
+                wrapper_html: { data: { controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"] } },
+                label: false, placeholder: 'Location' %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fas fa-dollar-sign"></i></div>
+              </div>
+              <%= f.input :price_per_day, label: false, placeholder: 'Price', class: 'form-control' %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fas fa-images"></i></div>
+              </div>
+              <%= f.input :photos, as: :file, input_html: { multiple: true }, label: false, placeholder: 'Photos', class: 'form-control' %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <%= f.button :submit, "Register my pony", class: "btn btn-primary btn-block" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
