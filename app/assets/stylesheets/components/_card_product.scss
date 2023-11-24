@@ -1,0 +1,46 @@
+.card-product {
+  overflow: hidden;
+  height: 140px;
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.card-product img {
+  height: 100%;
+  width: 140px;
+  object-fit: cover;
+}
+
+.card-product h2 {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: .8;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.status-pending {
+  padding-left: 230px;
+}
+.status-confirmed {
+  color: green;
+  padding-left: 230px;
+}
+
+.status-declined {
+  color: red;
+  padding-left: 230px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}
