@@ -7,30 +7,30 @@
 <div class="container">
 
   <div class="row">
-  <h1 class="mt-2 mb-4 title-profile">Manage my Ponies</h1>
+  <h1 class="mt-2 mb-4 title-profile">Manage my ponies</h1>
     <div class="col-6">
       <div class="cards-ponies">
-        <h2 class="text-center">my ponies</h2>
+        <h2>My ponies</h2>
         <div class="grid-ponies">
-        <% @ponies.each do |pony| %>
-            <div class="card-shadow-profile">
-              <%= cl_image_tag(pony.photos.first.key, class: "img-rounded", alt: "#{pony.name} Image") %>
-              <div class="card-body">
-                <h5 class="card-title mb-2 pt-2"> <b><%= pony.name %></b></h5>
-                <p class="card-text  mb-2"><%= pony.purpose %></p>
-                <p class="card-text"><%= pony.price_per_day %> <i class="fa-solid fa-dollar-sign"></i></p>
-                <%= link_to "Delete", pony_path(pony), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this pony?"}, class:"btn btn-purple"%>
+          <% @ponies.each do |pony| %>
+              <div class="card-shadow-profile">
+                <%= cl_image_tag(pony.photos.first.key, class: "img-rounded", alt: "#{pony.name} Image") %>
+                <div class="card-body">
+                  <h5 class="card-title mb-2 pt-2"> <b><%= pony.name %></b></h5>
+                  <p class="card-text  mb-2"><%= pony.purpose %></p>
+                  <p class="card-text"><%= pony.price_per_day %> <i class="fa-solid fa-dollar-sign"></i> per day</p>
+                  <%= link_to "Delete", pony_path(pony), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this pony?"}, class:"btn btn-purple"%>
+                </div>
               </div>
-            </div>
-        <% end %>
-      </div>
+          <% end %>
+        </div>
       </div>
     </div>
 
     <div class="col-6">
 
       <div class="cards-bookings">
-        <h2 class='text-center'>Bookings to validate</h2>
+        <h2>Bookings to validate</h2>
         <% @bookings_to_validate.each do |booking| %>
           <div class="card-product my-1">
               <%= cl_image_tag(booking.pony.photos.first.key, class: "card-img-top", alt: "#{booking.pony.name} Image") %>
@@ -38,16 +38,17 @@
               <h2>With <%= booking.pony.name%></h2>
               <p>From: <%= booking.start_date %></p>
               <p>To: <%= booking.end_date %></p>
+              <p><strong>Amount: <%= booking.total_price %>$</strong></p>
               <% if booking.status == "pending" %>
                 <%= link_to "Accept",
                   accept_booking_path(booking),
                   data: {turbo_method: :patch, turbo_confirm: "Are you sure you want to accept this booking ?"},
-                  class: "btn btn-purple"
+                  class: "btn btn-purple-booking"
                 %>
                 <%= link_to "Decline",
                   decline_booking_path(booking),
                   data: {turbo_method: :patch, turbo_confirm: "Are you sure you want to refuse this booking ?"},
-                  class: "btn btn-purple"
+                  class: "btn btn-purple-booking"
                 %>
               <% elsif booking.status == "Accepted" %>
                 <p class="status-confirmed">Confirmation sended</p>
@@ -65,7 +66,7 @@
     <div class="col-6">
        <h1 class="mt-5 mb-4 title-profile">Your future bookings</h1>
       <div class="cards-bookings">
-          <h2 class="text-center">Bookings to come  </h2>
+          <h2>Bookings to come  </h2>
           <% @user.bookings.each do |booking| %>
           <div class="card-product my-1">
               <%= cl_image_tag(booking.pony.photos.first.key, class: "card-img-top", alt: "#{booking.pony.name} Image") %>
