@@ -1,21 +1,29 @@
+<div id="index-hero" class="cover mb-4 d-flex align-items-center justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path("homepage-hero.jpg") %>">
+  <div class="text-center text-white">
+    <h1 class="title-white">Your profile</h1>
+  </div>
+</div>
+
 <div class="container">
 
   <div class="row">
-  <h1 class="my-5 ">Manage your Ponies!</h1>
+  <h1 class="my-5 title-profile">Manage your Ponies</h1>
     <div class="col-6">
       <div class="cards-ponies">
         <h2 class="text-center">Your ponies: </h2>
+        <div class="grid-ponies">
         <% @ponies.each do |pony| %>
-            <div class="card">
+            <div class="card-shadow-profile">
               <%= cl_image_tag(pony.photos.first.key, class: "img-rounded", alt: "#{pony.name} Image") %>
               <div class="card-body">
-                <h5 class="card-title"> <b><%= pony.name %></b></h5>
-                <p class="card-text"><%= pony.purpose %></p>
+                <h5 class="card-title mb-2 pt-2"> <b><%= pony.name %></b></h5>
+                <p class="card-text  mb-2"><%= pony.purpose %></p>
                 <p class="card-text"><%= pony.price_per_day %> <i class="fa-solid fa-dollar-sign"></i></p>
                 <%= link_to "Delete", pony_path(pony), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this pony?"}, class:"btn btn-primary"%>
               </div>
             </div>
         <% end %>
+      </div>
       </div>
     </div>
 
@@ -42,9 +50,9 @@
                   class: "btn btn-primary"
                 %>
               <% elsif booking.status == "Accepted" %>
-                <p class="status-confirmed">confirmation has been send to the renter</p>
+                <p class="status-confirmed">confirmation sended</p>
               <% else %>
-                <p class="status-declined">Cancelation has been send to the renter</p>
+                <p class="status-declined">Cancelation sended</p>
               <% end %>
             </div>
           </div>
@@ -55,7 +63,7 @@
 
   <div class="row">
     <div class="col-6">
-       <h1 class="my-5 ">Your future bookings:</h1>
+       <h1 class="my-5 title-profile">Your future bookings</h1>
       <div class="cards-bookings">
           <h2 class="text-center">outings to come next:  </h2>
           <% @user.bookings.each do |booking| %>
