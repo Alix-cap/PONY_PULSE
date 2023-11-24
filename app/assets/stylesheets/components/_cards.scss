@@ -1,3 +1,8 @@
+.title-profile {
+    font-size: 28px;
+    font-weight: bold;
+  }
+
 .cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -5,29 +10,35 @@
   padding-left: 165px;
 }
 .cards-ponies {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-gap: 10px;
-  background: white;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
-  padding: 25px;
+
   border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
 
   h2 {
-    font-weight: bold;
+    font-size: 24px;
+    padding-top: 20px;
+    font-weight: 300;
   }
+}
+.grid-ponies {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  padding: 25px;
+
 }
 .cards-bookings {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 10px;
   background: white;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
   padding: 25px;
   border-radius: 4px;
 
   h2 {
-    font-weight: bold;
+    font-size: 24px;
+    font-weight: 300;
   }
 }
 .cards-map {
@@ -46,6 +57,12 @@
   border-radius: 4px;
   padding: 10px;
   width: 30%;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+}
+.card-shadow-profile {
+  border-radius: 4px;
+  padding: 10px;
+  // width: 45%;
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
 }
 
