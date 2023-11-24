@@ -1,11 +1,12 @@
 <div id="index-hero" class="cover mb-4 d-flex align-items-center justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path("homepage-hero.jpg") %>">
   <div class="text-center text-white">
-    <h1 class="title-white">Our ponies</h1>
+    <h1 class="title-white">Check out our ponies</h1>
   </div>
 </div>
 
 <div class="container">
   <div class="row">
+  <h2> <%= @ponies.length %> ponies available </h2>
     <div class="container-cards col-md-8 p-0">
           <% @ponies.each do |pony| %>
             <div class="card-shadow">
