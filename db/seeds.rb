@@ -34,21 +34,21 @@ puts "User seed completed successfully!"
 races = ["Shetland", "Welsh", "Connemara", "Chincoteague", "Dartmoor", "Exmoor", "New Forest", "Pony of the Americas (POA)", "Icelandic Horse", "Fell"]
 coats = ["Bay", "Chestnut/Sorrel", "Black", "Palomino", "Gray", "Buckskin", "Roan", "Appaloosa", "Pinto", "Dun"]
 purposes = ["Companionship", "Recreational Riding", "Educational Tool", "Farm work", "Therapeutic Riding", "Competitive Sports", "Conservation Grazing"]
-locations = ["Rue Raynaldo Hahn, 14800 Deauville FRANCE",
-             "42 Av. le Kain, 78600 Maisons-Laffitte FRANCE",
-             "8 Rue de Fontenay, 94130 Nogent-sur-Marne FRANCE",
-             "Rue de Saint-Mathurin, 17220 La Jarne FRANCE",
-             "155 Av. du Port du Roy, 33290 Blanquefort FRANCE",
-             "2 Chem. de Blasignon, 33190 La Réole FRANCE",
-             "2733, avenue Albert Einstein, 34000 Montpellier FRANCE",
-             "370 Rue des Pointards, 45200 Amilly FRANCE",
-             "Chemin Lucien Olive, 13190 Allauch FRANCE",
-             "2 Rue des Sports, 69200 Vénissieux FRANCE",
-             "513 che Rouliers Complexe Sportif Du, 51100 Reims FRANCE",
-             "56 Rue du Haut de Chèvre, 54000 Nancy FRANCE",
-             "Rue du Grand Sainghin, 59262 Sainghin-en-Mélantois FRANCE",
-             "Chemin des Communaux, 76130 Mont-Saint-Aignan FRANCE",
-             "Sentier du Val aux Vaches, 76400 Fécamp FRANCE"]
+locations = ["14800 Deauville, FRANCE",
+             "78600 Maisons-Laffitte, FRANCE",
+             "94130 Nogent-sur-Marne, FRANCE",
+             "17220 La Jarne, FRANCE",
+             "33290 Blanquefort, FRANCE",
+             "33190 La Réole, FRANCE",
+             "34000 Montpellier, FRANCE",
+             "45200 Amilly, FRANCE",
+             "13190 Allauch, FRANCE",
+             "69200 Vénissieux, FRANCE",
+             "51100 Reims, FRANCE",
+             "54000 Nancy, FRANCE",
+             "59262 Sainghin-en-Mélantois, FRANCE",
+             "76130 Mont-Saint-Aignan, FRANCE",
+             "76400 Fécamp, FRANCE"]
 
 # Liste de noms pour les ponies
 pony_names = [
@@ -93,6 +93,7 @@ puts "Creating ponies..."
 pony_names.each_with_index do |name, index|
   pony = Pony.new(
     name:,
+    description: Faker::Lorem.paragraph(sentence_count: 10),
     race: Pony::RACES.sample,
     location: locations[index],
     birth_date: "#{rand(1990..2020)}-#{rand(1..12)}-#{rand(1..28)}",

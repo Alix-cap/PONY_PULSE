@@ -25,7 +25,7 @@ class Pony < ApplicationRecord
   validates :name, presence: true, length: { minimum: 3 }
   validates :location, :birth_date, :photos, presence: true
   validates :race, presence: true, inclusion: { in: RACES }
-
+  validates :description, presence: true
   validates :coat, presence: true, inclusion: { in: COAT }
 
   validates :sex, presence: true, inclusion: { in: SEX}
