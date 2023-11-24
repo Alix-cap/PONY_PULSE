@@ -6,12 +6,12 @@
 
 <div class="container">
   <div class="row">
-    <div class="container-cards col-md-6 p-0">
+    <div class="container-cards col-md-8 p-0">
           <% @ponies.each do |pony| %>
             <div class="card-shadow">
               <%= cl_image_tag(pony.photos.first.key, class: "img-rounded", alt: "#{pony.name} Image") %>
               <div class="card-body">
-                <h5 class="card-title mb-2"> <b><%= pony.name %></b></h5>
+                <h5 class="card-title mb-2 pt-2"> <b><%= pony.name %></b></h5>
                 <p class="card-text mb-2"><%= pony.purpose %></p>
                 <p class="card-text"><%= pony.price_per_day %> <i class="fa-solid fa-dollar-sign"></i></p>
                 <%= link_to "More info", pony_path(pony), class: "btn-purple ml-auto" %>
@@ -21,8 +21,8 @@
 
     </div>
 
-    <div class="col-md-6">
-      <div class="">
+    <div class="col-md-4">
+      <div class="position-sticky top-0">
         <div class="card-body">
         <div style="height: 600px;"
           data-controller="map"
