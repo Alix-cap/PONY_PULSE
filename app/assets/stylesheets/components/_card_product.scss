@@ -28,6 +28,19 @@
   margin-top: 8px;
 }
 
+.status-pending {
+  padding-left: 230px;
+}
+.status-confirmed {
+  color: green;
+  padding-left: 230px;
+}
+
+.status-declined {
+  color: red;
+  padding-left: 230px;
+}
+
 .card-product .card-product-infos {
   padding: 16px;
 }
