@@ -1,22 +1,30 @@
+<div id="index-hero" class="cover mb-4 d-flex align-items-center justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path("homepage-hero.jpg") %>">
+  <div class="text-center text-white">
+    <h1 class="title-white">Add your pony</h1>
+    <h5>Bring joy to riders and showcase your pony's charm by registering you beloved pony</h5>
+  </div>
+</div>
+
 <div class="container mb-3">
-<div class="mt-3">
+<div class="row justify-content-center">
+<div class="col-12 col-lg-6">
   <%= simple_form_for @pony do |f| %>
-<div class="row mb-3">
+      <div class="row mb-3">
         <div class="col-md-3">
-          <i class="fas fa-horse input-icon"></i>
-          <%= f.input :name, label: false, input_html: { placeholder: 'Name' } %>
+          <i class="fas fa-horse input-icon orange-icon"></i>
+          <%= f.input :name, label: "Name" %>
         </div>
         <div class="col-md-3">
           <i class="fas fa-venus-mars input-icon"></i>
-          <%= f.input :sex, collection: Pony::SEX, label: false, input_html: { placeholder: 'Sex' } %>
+          <%= f.input :sex, collection: Pony::SEX, label: "Sex" %>
         </div>
         <div class="col-md-3">
           <i class="fas fa-flag"></i>
-          <%= f.input :race, collection: Pony::RACES, label: false, input_html: { placeholder: 'Race' } %>
+          <%= f.input :race, collection: Pony::RACES, label: "Race" %>
         </div>
         <div class="col-md-3">
           <i class="fas fa-paint-brush"></i>
-          <%= f.input :coat, collection: Pony::COAT, label: false, input_html: { placeholder: 'Coat' } %>
+          <%= f.input :coat, collection: Pony::COAT, label: "Coat" %>
 
         </div>
       </div>
@@ -25,28 +33,28 @@
       <div class="row mb-3">
         <div class="col-md-4">
           <i class="fas fa-calendar-alt input-icon"></i>
-          <%= f.input :birth_date, as: :string, input_html: { data: { controller: "datepicker" }, placeholder: 'Birthdate' }, label: false %>
+          <%= f.input :birth_date, as: :string, input_html: { data: { controller: "datepicker" } }, label: "Birthdate" %>
         </div>
         <div class="col-md-4">
-          <i class="fas fa-bullseye input-icon"></i>
-          <%= f.input :purpose, collection: Pony::PURPOSES, label: false, input_html: { placeholder: 'Purpose' } %>
+          <i class="fa-solid fa-mountain-sun"></i>
+          <%= f.input :purpose, collection: Pony::PURPOSES, label: "Purpose" %>
         </div>
         <div class="col-md-4">
           <i class="fas fa-dollar-sign input-icon"></i>
-          <%= f.input :price_per_day, label: false, input_html: { placeholder: 'Price' } %>
+          <%= f.input :price_per_day, label: "Price per day" %>
 
         </div>
       </div>
 
       <!-- Ligne 3 -->
       <div class="row mb-3">
-        <div class="col-md-6">
+        <div class="col-md-6 mw-50">
           <i class="fas fa-map-marker-alt input-icon"></i>
-          <%= f.input :location, input_html: { data: { address_autocomplete_target: "location" }, class: "d-none" }, wrapper_html: { data: { controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"] } }, label: false %>
+          <%= f.input :location, input_html: { data: { address_autocomplete_target: "location" }, class: "d-none" }, wrapper_html: { data: { controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"] } }, label: "Location" %>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 mw-50">
           <i class="fas fa-camera input-icon"></i>
-          <%= f.input :photos, as: :file, input_html: { multiple: true }, label: false %>
+          <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Photos" %>
         </div>
       </div>
 
@@ -54,11 +62,12 @@
       <div class="row mb-3">
         <div class="col-md-12">
           <i class="fas fa-file-alt input-icon"></i>
-          <%= f.input :description, label: false, input_html: { placeholder: 'Description' } %>
+          <%= f.input :description, label: "Description", input_html: { placeholder: 'Please describe how nice your pony is' } %>
         </div>
       </div>
 
       <%= f.button :submit, "Register my pony", class: "btn btn-purple" %>
     <% end %>
+</div>
 </div>
 </div>
